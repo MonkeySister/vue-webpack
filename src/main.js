@@ -9,25 +9,30 @@ import Http from './plugin/http'
 
 import App from './App'
 import router from './router'
+//导入时间格式的包
+import moment from 'moment'
 //引入全局样式文件
 import '@/assets/css/index.css'
 
 
 
 // vue 在控制台有一些警告信息
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 //使用ElementUI插件
-Vue.use(ElementUI)
+Vue.use(ElementUI);
 //使用http插件
-Vue.use(Http)
-
+Vue.use(Http);
+//写一个全局的过滤器
+Vue.filter('fmtData', (v) => {
+    return moment(v).format("YYYY-MM-DD");
+});
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  components: {
-    App
-  },
-  template: '<App/>'
+    el: '#app',
+    router,
+    components: {
+        App
+    },
+    template: '<App/>'
 })

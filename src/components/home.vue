@@ -18,13 +18,14 @@
         <el-menu
           default-active="1"
           class="el-menu-vertical-demo"
-          unique-opened>
+          unique-opened
+          :router="true">
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-menu"></i>
               <span>用户管理</span>
             </template>
-            <el-menu-item index="1-1"><i class="el-icon-location"></i>用户列表</el-menu-item>
+            <el-menu-item index="users"><i class="el-icon-location"></i>用户列表</el-menu-item>
           </el-submenu>
           <el-submenu index="2">
             <template slot="title">
@@ -59,7 +60,9 @@
           </el-submenu>
         </el-menu>
       </el-aside>
-      <el-main class="main">Main</el-main>
+      <el-main class="main">
+        <router-view></router-view>
+      </el-main>
     </el-container>
   </el-container>
 </template>
@@ -110,5 +113,8 @@ export default {
 .container .header a {
   line-height: 60px;
   text-align: center;
+}
+.container .main{
+  background-color: #eeeaea;
 }
 </style>
