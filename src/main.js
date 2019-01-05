@@ -13,6 +13,8 @@ import router from './router'
 import moment from 'moment'
 //引入全局样式文件
 import '@/assets/css/index.css'
+//引入自己定义的全局组件
+import myBread from '@/components/myBread.vue'
 
 
 
@@ -27,6 +29,8 @@ Vue.use(Http);
 Vue.filter('fmtData', (v) => {
     return moment(v).format("YYYY-MM-DD");
 });
+//写一个全局的组件，使用自己自定义的组件
+Vue.component(myBread.name, myBread);
 /* eslint-disable no-new */
 new Vue({
     el: '#app',

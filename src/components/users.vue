@@ -1,13 +1,7 @@
 <template>
   <el-card class="box-card">
     <!-- 面包屑/头部导航 -->
-    <el-row>
-      <el-breadcrumb separator-class="el-icon-arrow-right">
-        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item>用户管理</el-breadcrumb-item>
-        <el-breadcrumb-item>用户列表</el-breadcrumb-item>
-      </el-breadcrumb>
-    </el-row>
+    <my-bread level1="用户管理" level2="用户列表"></my-bread>
     <!-- 搜索框 -->
     <el-row class="Slect">
       <el-col :span="8">
@@ -173,10 +167,6 @@ export default {
       //在发起请求前需要设置请求头
       //全局axios设置默认值
       //在哪用在哪写
-
-      this.$http.defaults.headers.common[
-        "Authorization"
-      ] = localStorage.getItem("token");
       const res = await this.$http.get(
         `users?query=${this.query}&pagenum=${this.pagenum}&pagesize=${
           this.pagesize
