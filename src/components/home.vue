@@ -100,5 +100,6 @@ export default {
 }
 .container .main{
   background-color: #eeeaea;
+  /* height: 100%; */
 }
 </style>

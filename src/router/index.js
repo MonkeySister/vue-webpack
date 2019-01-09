@@ -1,12 +1,15 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
+import { Message } from 'element-ui';
 import Login from '@/components/Login.vue'
 import Home from '@/components/home.vue'
 import Users from '@/components/users.vue'
 import Rights from '@/components/rights.vue'
 import Roles from '@/components/roles.vue'
-import { Message } from 'element-ui';
+import Goods from '@/components/goods.vue'
+import addGoods from '@/components/addGoods.vue'
+import Params from '@/components/params.vue'
+import Categories from '@/components/goodscate.vue'
 Vue.use(Router)
 
 
@@ -29,6 +32,26 @@ const router = new Router({
                     name: 'roles',
                     path: '/roles',
                     component: Roles
+                },
+                {
+                    name: 'goods',
+                    path: '/goods',
+                    component: Goods
+                },
+                {
+                    name: 'addGoods',
+                    path: '/addGoods',
+                    component: addGoods
+                },
+                {
+                    name: 'params',
+                    path: '/params',
+                    component: Params
+                },
+                {
+                    name: 'categories',
+                    path: '/categories',
+                    component: Categories
                 }
             ]
         },
@@ -45,7 +68,7 @@ router.beforeEach((to, from, next) => {
     //在这里可以配置路由
     //如果要去的是登录 -> 继续执行路由配置 next()
     //如果要去的是home -> 判断有没有token -> 有next() ->没有去login
-    console.log(to);
+    //console.log(to);
     if (to.name === "login") {
         next();
     } else {

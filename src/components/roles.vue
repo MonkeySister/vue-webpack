@@ -182,10 +182,6 @@ export default {
 };
 </script>
 <style>
-.card {
-  height: 100%;
-  overflow: auto;
-}
 .card .btn {
   margin-top: 15px;
 }
