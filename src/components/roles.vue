@@ -77,6 +77,7 @@
   </el-card>
 </template>
 <script>
+import { Message } from 'element-ui';
 export default {
   data() {
     return {
@@ -92,6 +93,9 @@ export default {
       checkedRights: [],
       rolesId: -1
     };
+  },
+  components:{
+    Message
   },
   created() {
     this.getRolesList();
@@ -119,8 +123,6 @@ export default {
         //this.getRolesList();
         //只更新当前表格
         role.children = res.data.data;
-      } else {
-        this.$message.error(msg);
       }
     },
     //点击显示分配权限对话框
@@ -174,14 +176,15 @@ export default {
         this.$message.success(msg);
         this.dialogVisibleRights = false;
         this.getRolesList();
-      } else {
-        this.$message.error(msg);
       }
     }
   }
 };
 </script>
-<style>
+<style scoped>
+.card{
+  height: 100%;
+}
 .card .btn {
   margin-top: 15px;
 }

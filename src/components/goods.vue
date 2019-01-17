@@ -12,7 +12,7 @@
       <el-col :span="4"><el-button type="success" @click="showAddGoods()">添加商品</el-button></el-col>
     </el-row>
         <!-- 显示表格 -->
-    <el-table :data="tableData" height="400" border style="width: 1200px">
+    <el-table :data="tableData" height="380" border style="width: 1200px">
       <el-table-column prop="goods_id" label="#" width="60"></el-table-column>
       <el-table-column prop="goods_name" label="商品名称" width="610"></el-table-column>
       <el-table-column prop="goods_price" label="商品价格" width="60"></el-table-column>
@@ -102,7 +102,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 .Slect {
   margin: 10px 0;
 }

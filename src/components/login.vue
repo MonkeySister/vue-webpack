@@ -61,14 +61,12 @@ export default {
           this.$router.push({
             name:'home'
           });
-        }else{
-          this.$message.error(msg);
         }
     }
   },
 };
 </script>
-<style>
+<style scoped>
 .loginForm{
   height: 100%;
   display: flex;

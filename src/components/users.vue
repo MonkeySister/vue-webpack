@@ -12,7 +12,7 @@
       <el-col :span="4"><el-button type="success" @click="showAddUsers()">添加用户</el-button></el-col>
     </el-row>
     <!-- 显示表格 -->
-    <el-table :data="tableData" height="350" border style="width: 100%">
+    <el-table :data="tableData" height="350" border style="width: 100%" v-loading="loading">
       <el-table-column prop="id" label="#" width="80"></el-table-column>
       <el-table-column prop="username" label="姓名" width="160"></el-table-column>
       <el-table-column prop="email" label="邮箱" width="160"></el-table-column>
@@ -151,7 +151,8 @@ export default {
       dialogFormVisibleRights: false,
       formLabelWidth: "80px",
       currentRoleID:-1,
-      roles:[]
+      roles:[],
+      loading: true
     };
   },
   created() {
@@ -176,6 +177,7 @@ export default {
       const { data: { data: { total, users }, meta } } = res;
       //console.log(meta);
       if (meta.status == 200) {
+        this.loading = false;
         //如果获取数据成功
         this.tableData = users;
         this.total = total;
@@ -229,10 +231,7 @@ export default {
         this.dialogFormVisibleAdd = false;
         //重新渲染数据
         this.getTableData();
-      } else {
-        //如果失败
-        this.$message.error(msg);
-      }
+      };
     },
     //删除用户功能
     delUser(userID) {
@@ -249,9 +248,7 @@ export default {
           if (status == 200) {
             this.$message.success(msg);
             this.getTableData();
-          } else {
-            this.$message.error(msg);
-          }
+          };
         })
         .catch(() => {
           this.$message({
@@ -282,9 +279,7 @@ export default {
         this.$message.success(msg);
         this.dialogFormVisibleEdit = false;
         this.getTableData();
-      } else {
-        this.$message.error(msg);
-      }
+      };
     },
     //改变用户状态
     async changeUserState(user) {
@@ -317,14 +312,12 @@ export default {
         this.$message.success(msg);
         this.dialogFormVisibleRights = false;
         this.getTableData();
-      }else{
-        this.$message.error(msg);
-      }
+      };
     }
   }
 };
 </script>
-<style>
+<style scoped>
 .box-card {
   height: 100%;
 }

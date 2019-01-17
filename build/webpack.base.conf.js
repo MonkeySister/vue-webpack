@@ -22,6 +22,7 @@ const createLintingRule = () => ({
 module.exports = {
     context: path.resolve(__dirname, '../'),
     entry: {
+        //开始打包
         app: './src/main.js'
     },
     output: {
@@ -29,6 +30,16 @@ module.exports = {
         filename: '[name].js',
         publicPath: process.env.NODE_ENV === 'production' ?
             config.build.assetsPublicPath : config.dev.assetsPublicPath
+    },
+    //key的值cdn包的报名
+    //value该报源码中暴露给全局变量的包名
+    externals:{
+        "vue": "Vue",
+        "vue-router": "VueRouter",
+        "element-ui": "ELEMENT",
+        "axios": "axios",
+        "moment": "moment",
+        "echarts": "echarts",
     },
     resolve: {
         extensions: ['.js', '.vue', '.json'],

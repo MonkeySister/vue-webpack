@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 
-import ElementUI from 'element-ui'
+import ELEMENT from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 //导入自己创建的发送请求的插件
 import Http from './plugin/http'
@@ -22,7 +22,7 @@ import myBread from '@/components/myBread.vue'
 Vue.config.productionTip = false;
 
 //使用ElementUI插件
-Vue.use(ElementUI);
+Vue.use(ELEMENT);
 //使用http插件
 Vue.use(Http);
 //写一个全局的过滤器

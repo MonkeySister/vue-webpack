@@ -22,7 +22,7 @@ export default {
   props:["level1","level2"]
 }
 </script>
-<style>
+<style scoped>
 
 </style>
 

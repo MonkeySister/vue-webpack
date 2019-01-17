@@ -148,13 +148,12 @@ export default {
       const {meta:{msg,status}} = res.data;
       if(status ==200){
         this.$message.success(msg);
-      }else{
-        this.$message.error(msg);
       }
     },
     //显示输入框
     showInput() {
       this.inputVisible = true;
+      //$,nextTick:
       this.$nextTick(_ => {
         this.$refs.saveTagInput.$refs.input.focus();
         //发送请求更新数据
@@ -175,8 +174,6 @@ export default {
         const {meta:{msg,status}} = res.data;
         if(status ==200){
           this.$message.success(msg);
-        }else{
-          this.$message.error(msg);
         }
       }
       this.inputVisible = false;
@@ -185,7 +182,7 @@ export default {
   },
 }
 </script>
-<style>
+<style scoped>
 .card{
   height: 100%;
   overflow: auto;

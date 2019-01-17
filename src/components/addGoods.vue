@@ -239,13 +239,11 @@ export default {
         this.$router.push({
           name:"goods"
         })
-      }else{
-        this.$message.error(msg);
-      }
+      };
     }
   },
 };
-</script>
+</script scoped>
 <style>
 .card {
   height: 100%;

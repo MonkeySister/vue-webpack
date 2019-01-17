@@ -86,7 +86,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
 .container {
   height: 100%;
 }
@@ -100,6 +100,7 @@ export default {
 }
 .container .main{
   background-color: #eeeaea;
-  /* height: 100%; */
+  
+  overflow: hidden;
 }
 </style>
